@@ -7,14 +7,63 @@ package lista;
 
 /**
  *
- * @author vick0
+ * @author vick08bv
  */
 public class Casilla {
     
-    private char tipo;
+    
+    private char info;
+    private Casilla sig;
+    
     
     public Casilla(){
-        this.tipo = '\000';
+        super();
+        this.info = '\000';
+        this.sig = null;
+    }
+    
+    
+    public Casilla(char c){
+    
+        super();
+        this.info = c;
+        this.sig = null;
+    
+    }
+    
+    
+    public boolean equals(Casilla c){
+    
+        return this.info == c.info;
+    
+    }
+    
+    
+    public char getInfo(){
+    
+        return this.info;
+    
+    }
+    
+    
+    public void setInfo(char c){
+    
+        this.info = c;
+        
+    }
+    
+    
+    public void setSig(Casilla s){
+    
+        this.sig = s;
+        
+    }
+    
+    
+    public String toString(){
+    
+        return this.info + "";
+    
     }
     
 }
