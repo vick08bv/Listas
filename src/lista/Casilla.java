@@ -11,4 +11,10 @@ package lista;
  */
 public class Casilla {
     
+    private char tipo;
+    
+    public Casilla(){
+        this.tipo = '\000';
+    }
+    
 }
