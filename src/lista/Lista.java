@@ -41,6 +41,11 @@ public class Lista {
         }
             
         System.out.println(r);
+        
+        
+        r.quita();
+        
+        System.out.println(r);
     
     }
     

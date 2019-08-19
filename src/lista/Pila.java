@@ -25,6 +25,11 @@ public class Pila {
     
     
     public void pon(Casilla cas){
+        
+        
+        if(cas == null){
+            return;
+        }
     
         if(this.tope == null){
             tope = cas;
@@ -36,13 +41,34 @@ public class Pila {
     }
     
     
-    public Casilla getTope(){
+    public void quita(){
     
-        return this.tope;
+        tope = tope.getSig();
     
     }
     
     
+    public boolean isVacia(){
+    
+        return this.tope == null;
+        
+    }
+    
+    public void anula(){
+    
+        tope = null;
+    
+    }
+    
+    
+    public char getTope(){
+    
+        return tope.getInfo();
+    
+    }
+    
+    
+    @Override
     public String toString(){
     
         Casilla aux = this.tope;
@@ -56,7 +82,9 @@ public class Pila {
             
         }
     
+        return salida;
+        
     }
-
+    
     
 }

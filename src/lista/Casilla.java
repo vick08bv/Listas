@@ -53,6 +53,12 @@ public class Casilla {
     }
     
     
+    public Casilla getSig(){
+    
+        return this.sig;
+    
+    }
+    
     public void setSig(Casilla s){
     
         this.sig = s;
@@ -65,5 +71,14 @@ public class Casilla {
         return this.info + "";
     
     }
+    
+    
+//    protected Casilla clone() throws CloneNotSupportedException{
+//    
+//        super.clone();
+//        return new Casilla(info);
+//    
+//    
+//    }
     
 }
