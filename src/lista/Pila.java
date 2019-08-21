@@ -17,6 +17,7 @@ public class Pila {
      */
     public Pila(){
     
+        super();
         this.tope = null;
     
     }

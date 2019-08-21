@@ -21,6 +21,7 @@ public class Casilla {
      * Constructor con valores nulos.
      */
     public Casilla(){
+        
         super();
         this.info = '\000';
         this.sig = null;
