@@ -44,6 +44,16 @@ public class Lista {
         
         System.out.println(p.isVacia());
     
+        
+        Cola c = new Cola();
+    
+        System.out.println(c);
+        
+        c.mete(new Casilla('c'));
+        
+        System.out.println(c);
+        
     }
+    
     
 }

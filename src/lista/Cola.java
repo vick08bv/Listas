@@ -19,14 +19,14 @@ public class Cola {
     }
 
     
-    public Casilla getInicio(){
+    public Casilla getPrimero(){
         
         return this.primero;
     
     }
     
     
-    public Casilla getFinal(){
+    public Casilla getUltimo(){
     
         return this.ultimo;
         
@@ -40,6 +40,18 @@ public class Cola {
     
 
     public void mete(Casilla nueva) {
+        
+        if(nueva == null){
+            return;
+        }
+        
+        if(this.isVacia()){
+        
+            this.primero = nueva;
+            this.ultimo = nueva;
+            return;
+        
+        }
         
         this.ultimo.setSig(nueva);
         this.ultimo = nueva;
@@ -57,6 +69,7 @@ public class Cola {
     public void anula(){
     
         this.primero = null;
+        this.ultimo = null;
     
     }
     
@@ -81,6 +94,12 @@ public class Cola {
             salida += aux.getInfo();
             aux = aux.getSig();
             
+        }
+        
+        if ("".equals(salida)){
+        
+            return "Es vacia";
+    
         }
     
         return salida;

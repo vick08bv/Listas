@@ -96,7 +96,13 @@ public class Pila {
             aux = aux.getSig();
             
         }
+        
+        if ("".equals(salida)){
+        
+            return "Es vacia";
     
+        }
+        
         return salida;
         
     }
