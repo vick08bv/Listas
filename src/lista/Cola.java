@@ -8,13 +8,14 @@ public class Cola {
     
     private Casilla primero;
     private Casilla ultimo;
-
+    private int longitud;
     
     public Cola() {
         
         super();
         this.primero = null;
         this.ultimo = null;
+        this.longitud = 0;
         
     }
 
@@ -32,12 +33,17 @@ public class Cola {
         
     }
     
-    public Casilla saca() {
+    public void saca() {
         
-        return primero;
+        if (this.isVacia()){
+            return;
+        }
+        
+        primero = primero.getSig();
+        
+        this.longitud -= 1;
         
     }
-    
 
     public void mete(Casilla nueva) {
         
@@ -55,6 +61,8 @@ public class Cola {
         
         this.ultimo.setSig(nueva);
         this.ultimo = nueva;
+        
+        this.longitud += 1;
     
     }
 
@@ -79,6 +87,13 @@ public class Cola {
         
         return true;
         
+    }
+    
+    
+    public int getLongitud(){
+    
+        return this.longitud;
+    
     }
     
     

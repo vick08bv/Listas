@@ -2,58 +2,62 @@ package lista;
 
 /**
  *
- * @author vick08bv
+ * @author windows
  */
 public class Lista {
+    
+    
+    private Casilla primero;
+    private int longitud;
+    
 
-    /**
-     * @param arg the command line arguments.
-     */
-    public static void main(String[] arg){
-    
-        Casilla cas = new Casilla('a');
-        Casilla ncas = new Casilla('b');
+    public Lista() {
         
-        Pila p = new Pila();
-        
-        p.pon(cas);   
-        p.pon(ncas);
-        
-        System.out.println(cas.equals(ncas));
-        System.out.println(p.toString());
-        
-        Pila r = new Pila();
-        Casilla s = null;
-        
-        for(int i = 0; i < 15; i++){
-            s = new Casilla((char)('a' + i));
-            r.pon(s);
-            System.out.println(r.getTope());
-        }
-            
-        System.out.println(r);
-
-        for(int i = 0; i < 15; i++){
-            System.out.println(r.getTope());
-            r.quita();
-        }
-        
-        System.out.println(r.isVacia());
-        
-        p.anula();
-        
-        System.out.println(p.isVacia());
-    
-        
-        Cola c = new Cola();
-    
-        System.out.println(c);
-        
-        c.mete(new Casilla('c'));
-        
-        System.out.println(c);
+        this.primero = null;
+        this.longitud = 0;
         
     }
+    
+    
+    public void anula(){
+    
+        this.primero = null;
+    
+    }
+    
+    
+    public int getLongitud(){
+    
+        return this.longitud;
+    
+    }
+    
+
+    @Override
+    public String toString(){
+    
+        Casilla aux = this.primero;
+        
+        String salida = "";
+            
+        while(aux != null){
+            
+            salida += aux.getInfo();
+            aux = aux.getSig();
+            
+        }
+        
+        if ("".equals(salida)){
+        
+            return "Es vacia";
+    
+        }
+    
+        return salida;
+        
+    }
+
+    
     
     
 }
