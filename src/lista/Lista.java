@@ -19,6 +19,44 @@ public class Lista {
     }
     
     
+    public void inserta(Casilla elemento, int pos){
+    
+        if (elemento == null){
+            return;
+        }
+        
+        if (this.isVacia()){
+            
+            if(pos == 1){
+            
+                this.primero = elemento;
+            
+            } else {
+        
+                return;
+        
+            }
+            
+        if(pos > this.getLongitud()){
+        
+            return;
+        
+        }
+        
+        Casilla aux = this.primero;
+        
+        for (int i = 0; i < pos - 1; i++){
+        
+            aux = aux.getSig();
+        
+        }
+        
+            
+        }
+    
+    }
+    
+    
     public void anula(){
     
         this.primero = null;
@@ -29,6 +67,13 @@ public class Lista {
     public int getLongitud(){
     
         return this.longitud;
+    
+    }
+    
+    
+    public boolean isVacia(){
+    
+        return this.primero == null;
     
     }
     
