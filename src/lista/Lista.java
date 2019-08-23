@@ -51,6 +51,8 @@ public class Lista {
         
         }
         
+        elemento.setSig(aux.getSig());
+        aux.setSig(elemento);
             
         }
     
