@@ -2,7 +2,7 @@ package lista;
 
 /**
  *
- * @author windows
+ * @author vick08bv
  */
 public class Lista {
     
