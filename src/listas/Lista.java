@@ -25,7 +25,7 @@ public class Lista {
             return;
         }
         
-        if (this.isVacia()){
+        if(this.isVacia()){
             
             if(pos == 1){
             
@@ -37,7 +37,9 @@ public class Lista {
         
             }
             
-        if(pos > this.getLongitud()){
+        }
+            
+        if(pos > this.getLongitud() || pos < 1){
         
             return;
         
@@ -45,7 +47,7 @@ public class Lista {
         
         Casilla aux = this.primero;
         
-        for (int i = 0; i < pos - 1; i++){
+        for (int i = 1; i < pos - 1; i++){
         
             aux = aux.getSig();
         
@@ -55,6 +57,32 @@ public class Lista {
         aux.setSig(elemento);
             
         }
+
+    public void suprime(int pos){
+    
+        if(this.isVacia()){
+    
+            System.out.println("La lista está vacía");
+            return;
+            
+        }
+        
+        if(pos > this.longitud || pos < 1){
+        
+            System.out.println("Posición errónea");
+            return;
+            
+        }
+        
+        Casilla aux = this.primero;
+        
+        for (int i = 1; i < pos - 2; i++){
+        
+            aux = aux.getSig();
+        
+        }
+        
+        aux.setSig(aux.getSig().getSig());
     
     }
     

@@ -53,6 +53,20 @@ public class PruebaListas {
         
         System.out.println(c);
         
+        Lista l = new Lista();
+        Casilla c1 = new Casilla('a');
+        Casilla c2 = new Casilla('b');
+        Casilla c3 = new Casilla('c');
+        Casilla c4 = new Casilla('d');
+        
+        l.inserta(c1, 1);
+        l.inserta(c2, 2);
+        l.inserta(c3, 2);
+        l.inserta(c4, 1);
+        
+        System.out.println(l);
+        
+        
     }
     
     

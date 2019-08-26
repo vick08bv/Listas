@@ -1,7 +1,5 @@
 package banco;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
-
 /**
  * Implementación de un cliente en la fila de un banco.
  * @author vick08bv
