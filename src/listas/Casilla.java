@@ -1,7 +1,7 @@
-package lista;
+package listas;
 
 /**
- *
+ * Implementación de una casilla que contiene un carácter.
  * @author vick08bv
  */
 
