@@ -50,24 +50,6 @@ class Fila implements Comparable<Fila>{
         this.tiempoEspera = 0;
         
     }
-    
-    /**
-     * Saca el cliente que ya ha sido atendido.
-     */
-    public void saca() {
-        
-        if (this.isVacia()){
-            return;
-        }
-        
-        this.clientes += 1;
-        this.tiempoAtencion += this.primero.getTiempoAtencion();
-        this.tiempoEspera += this.primero.getTiempoEspera();
-        this.longitud -= 1;
-        
-        this.primero = primero.getSiguiente();
-        
-    }
 
     /**
      *Añade un cliente a la fila.
@@ -96,6 +78,24 @@ class Fila implements Comparable<Fila>{
         this.longitud += 1;
     
     }
+
+    /**
+     * Saca el cliente que ya ha sido atendido.
+     */
+    public void saca() {
+        
+        if (this.isVacia()){
+            return;
+        }
+        
+        this.clientes += 1;
+        this.tiempoAtencion += this.primero.getTiempoAtencion();
+        this.tiempoEspera += this.primero.getTiempoEspera();
+        this.longitud -= 1;
+        
+        this.primero = primero.getSiguiente();
+        
+    }
     
     /**
      * Hace esperar a los clientes.
@@ -118,7 +118,7 @@ class Fila implements Comparable<Fila>{
      */
     public void atenderClientes(){
     
-        if(this.primero == null){
+        if(this.isVacia()){
         
             return;
             
@@ -135,8 +135,8 @@ class Fila implements Comparable<Fila>{
     
         this.primero.atenderAsuntos();
         
-        if(this.primero.terminado() == true){
-        
+        if(this.primero.terminado()){
+            
             this.saca();
         
         }

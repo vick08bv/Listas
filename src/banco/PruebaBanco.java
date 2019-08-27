@@ -14,13 +14,13 @@ public class PruebaBanco {
     public static void main(String[] args) {
         
         //Número de simulaciones.
-        int reps = 100;
+        int reps = 10;
         
         //Número de ventanillas
         int numV = 3;
         
         //Número de minutos
-        int minutos = 8*360;
+        int minutos = 360;
                 
         //Ventanillas del banco, en modalidad unifila o multifila.
         Fila[] unifila = new Fila[numV];
@@ -124,7 +124,7 @@ public class PruebaBanco {
 //                System.out.printf("\nMinuto: %s\n", minuto);
                 
                 //Llegada de un nuevo cliente al banco.
-                if(Math.random() < (1000*tendencia)/(minutos)){
+                if(Math.random() < (100*tendencia)/(minutos)){
 
                     ultimoU = new Cliente();
                     ultimoM = new Cliente();
@@ -159,9 +159,11 @@ public class PruebaBanco {
                         primero = filaEspera.getPrimero();
                         filaEspera.saca();
                         if(primero != null){
+                            
                             primero.setSiguiente(null);
+                            unifila[i].mete(primero);
+                            
                         }
-                        unifila[i].mete(primero);
                         
 //                        System.out.println("Primer cliente en la fila de espera");
 //                        System.out.println(primero);
@@ -178,7 +180,7 @@ public class PruebaBanco {
 //                    System.out.println(unifila[i]);
 //                    System.out.printf("\nMultifila: %s ", i);
 //                    System.out.println(multifila[i]);
-                    unifila[i].atenderClientes();
+                    unifila[i].atenderClientes();                  
                     multifila[i].atenderClientes();
                 
                 }
@@ -215,9 +217,9 @@ public class PruebaBanco {
             tiempoTotalEsperaM += tiempoEsperaM;
         
             System.out.printf("\nCifra Diaria:");
-            System.out.printf("\nClientes formados %s", clientesIn);
+            System.out.printf("\nClientes formados %d", clientesIn);
             System.out.printf("\nClientes atendidos: ");
-            System.out.printf("\nUnifila: %s    Multifila: %s",
+            System.out.printf("\nUnifila: %d    Multifila: %d",
                                 clientesU, clientesM);
             System.out.printf("\nTiempo de atención: ");
             System.out.printf("\nUnifila: %d    Multifila: %d",
@@ -229,13 +231,13 @@ public class PruebaBanco {
              
         }
        
-        clientesPromedioIn = (double)(clientesInT / reps); 
-        clientesAtendidosPromedioU = (double)(clientesUT / reps);
-        clientesAtendidosPromedioM = (double)(clientesMT / reps);
-        tiempoAtencionPromedioU = (double)(tiempoTotalAtendidoU / reps);
-        tiempoAtencionPromedioM = (double)(tiempoTotalAtendidoM / reps);
-        tiempoEsperaPromedioU = (double)(tiempoTotalEsperaU / clientesUT);
-        tiempoEsperaPromedioM = (double)(tiempoTotalEsperaM / clientesMT);
+        clientesPromedioIn = (double)((float)clientesInT / reps); 
+        clientesAtendidosPromedioU = (double)((float)clientesUT / reps);
+        clientesAtendidosPromedioM = (double)((float)clientesMT / reps);
+        tiempoAtencionPromedioU = (double)((float)tiempoTotalAtendidoU / reps);
+        tiempoAtencionPromedioM = (double)((float)tiempoTotalAtendidoM / reps);
+        tiempoEsperaPromedioU = (double)((float)tiempoTotalEsperaU / clientesUT);
+        tiempoEsperaPromedioM = (double)((float)tiempoTotalEsperaM / clientesMT);
         
         System.out.printf("\nPromedios:");
         System.out.printf("\nClientes formados en promedio por "
