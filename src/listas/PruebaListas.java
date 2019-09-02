@@ -60,9 +60,14 @@ public class PruebaListas {
         Casilla c4 = new Casilla('d');
         
         l.inserta(c1, 1);
-        l.inserta(c2, 2);
-        l.inserta(c3, 2);
+        l.inserta(c2, 1);
+        l.inserta(c3, 3);
         l.inserta(c4, 1);
+        System.out.println(l.localiza('a'));
+        System.out.println(l.localiza('b'));
+        System.out.println(l.localiza('c'));
+        System.out.println(l.localiza('d'));
+        System.out.println(l.localiza('e'));
         
         System.out.println(l);
         

@@ -1,4 +1,4 @@
-package listas;
+ package listas;
 
 /**
  *
@@ -30,6 +30,7 @@ public class Lista {
             if(pos == 1){
             
                 this.primero = elemento;
+                this.longitud++;
             
             } else {
         
@@ -55,8 +56,9 @@ public class Lista {
         
         elemento.setSig(aux.getSig());
         aux.setSig(elemento);
+        this.longitud++;
             
-        }
+    }
 
     public void suprime(int pos){
     
@@ -84,6 +86,70 @@ public class Lista {
         
         aux.setSig(aux.getSig().getSig());
     
+    }
+    
+    public int localiza(char caracter){
+        
+        if(this.isVacia()){
+        
+            return -1;
+
+            
+        }
+        
+        int indice = 1;
+        
+        Casilla aux = this.primero;
+        
+        while(aux != null && aux.getInfo()!= caracter){
+        
+            aux = aux.getSig();
+            indice++;
+        
+        }
+
+        if(aux == null){
+        
+            return -1;
+            
+        } else {
+            
+            return indice;
+            
+        }   
+        
+    }
+    
+    public int recupera(char caracter){
+        
+        if(this.isVacia()){
+        
+            return -1;
+
+            
+        }
+        
+        int indice = 1;
+        
+        Casilla aux = this.primero;
+        
+        while(aux != null && aux.getInfo()!= caracter){
+        
+            aux = aux.getSig();
+            indice++;
+        
+        }
+
+        if(aux == null){
+        
+            return -1;
+            
+        } else {
+            
+            return indice;
+            
+        }   
+        
     }
     
     
