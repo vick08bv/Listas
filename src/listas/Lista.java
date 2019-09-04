@@ -1,4 +1,4 @@
- package listas;
+package listas;
 
 /**
  *
@@ -40,7 +40,7 @@ public class Lista {
             
         }
             
-        if(pos > this.getLongitud() || pos < 1){
+        if(pos > this.getLongitud() + 1 || pos < 1){
         
             return;
         
@@ -120,38 +120,75 @@ public class Lista {
         
     }
     
-    public int recupera(char caracter){
+    public char recupera(int indice){
         
         if(this.isVacia()){
         
-            return -1;
+            return '\000';
 
             
         }
         
-        int indice = 1;
+        if(indice < 1 || indice > this.longitud){
+        
+            return '\000';
+        
+        }
         
         Casilla aux = this.primero;
         
-        while(aux != null && aux.getInfo()!= caracter){
+        int indiceAux = 1;
+        
+        while(indiceAux != indice){
         
             aux = aux.getSig();
-            indice++;
+            indiceAux++;
         
         }
 
-        if(aux == null){
+        return aux.getInfo();
+        
+    }
+    
+    public int siguiente(int indice){
+    
+        if(indice < 1 || indice >= this.longitud){
         
             return -1;
             
         } else {
             
-            return indice;
-            
-        }   
+            return this.recupera(indice + 1);
         
+        }
+    
     }
     
+    public int anterior(int indice){
+    
+        if(indice <= 1 || indice > this.longitud){
+        
+            return -1;
+            
+        } else {
+            
+            return this.recupera(indice - 1);
+        
+        }
+    
+    }
+    
+    public char getPrimero(){
+    
+        return this.primero.getInfo();
+    
+    }
+    
+    public char getUltimo(){
+    
+        return this.recupera(this.longitud);
+    
+    }
     
     public void anula(){
     
