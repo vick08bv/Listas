@@ -7,7 +7,7 @@ package banco;
 public class Asunto {
     
     /**
-     * Duración del asunto en minutos, en un rango de 0 a 10.
+     * Duración del asunto en minutos, en un rango de 1 a 10.
      */
     private int duracion; 
 

@@ -1,4 +1,4 @@
-package banco;
+ package banco;
 
 /**
  * Implementación de un cliente en la fila de un banco.
@@ -19,7 +19,7 @@ public class Cliente {
     /**
      * Duración total de los asuntos del cliente.
      */
-    private int tiempoAtencion;
+    private final int tiempoAtencion;
     
     /**
      * Tiempo de espera total en la fila.
