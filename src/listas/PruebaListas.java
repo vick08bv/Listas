@@ -71,6 +71,28 @@ public class PruebaListas {
         
         System.out.println(l);
         
+        Nodo a1 = new Nodo("Plátano");
+        
+        Nodo a2 = new Nodo("Pera");
+        
+        Nodo a3 = new Nodo("Manzana");
+        
+        Nodo a4 = new Nodo("Guayaba");
+        
+        Nodo a5 = new Nodo("Kiwi");
+        
+        Nodo a6 = new Nodo("Uva");
+        
+        System.out.println(a1);
+        Arbol arbol = new Arbol(a1);
+        
+        a1.setIzq(a2);
+        a1.setDer(a3);
+        a2.setIzq(a4);
+        a4.setDer(a5);
+        a5.setDer(a6);
+        
+        System.out.println(arbol);
         
     }
     

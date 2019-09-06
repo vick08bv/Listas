@@ -31,6 +31,7 @@ public class Lista {
             
                 this.primero = elemento;
                 this.longitud++;
+                return;
             
             } else {
         
