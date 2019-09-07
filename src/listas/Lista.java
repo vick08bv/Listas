@@ -79,13 +79,14 @@ public class Lista {
         
         Casilla aux = this.primero;
         
-        for (int i = 1; i < pos - 2; i++){
+        for (int i = 0; i < pos - 2; i++){
         
             aux = aux.getSig();
         
         }
         
         aux.setSig(aux.getSig().getSig());
+        this.longitud -= 1;
     
     }
     
@@ -113,12 +114,10 @@ public class Lista {
         
             return -1;
             
-        } else {
+        }
             
-            return indice;
+        return indice;
             
-        }   
-        
     }
     
     public char recupera(int indice){
@@ -140,11 +139,8 @@ public class Lista {
         
         int indiceAux = 1;
         
-        while(indiceAux != indice){
-        
+        for (int i = 1; i < indice; i++) {
             aux = aux.getSig();
-            indiceAux++;
-        
         }
 
         return aux.getInfo();

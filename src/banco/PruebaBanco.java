@@ -14,13 +14,13 @@ public class PruebaBanco {
     public static void main(String[] args) {
         
         //Número de simulaciones.
-        int reps = 10;
+        int reps = 20;
         
         //Número de ventanillas
-        int numV = 3;
+        int numV = 1;
         
         //Número de minutos
-        int minutos = 360;
+        int minutos = 3600;
                 
         //Ventanillas del banco, en modalidad unifila o multifila.
         Fila[] unifila = new Fila[numV];
@@ -124,7 +124,7 @@ public class PruebaBanco {
 //                System.out.printf("\nMinuto: %s\n", minuto);
                 
                 //Llegada de un nuevo cliente al banco.
-                if(Math.random() < (100*tendencia)/(minutos)){
+                if(Math.random() < (1000*tendencia)/(minutos)){
 
                     ultimoU = new Cliente();
                     ultimoM = new Cliente();
@@ -158,6 +158,7 @@ public class PruebaBanco {
                         
                         primero = filaEspera.getPrimero();
                         filaEspera.saca();
+                        
                         if(primero != null){
                             
                             primero.setSiguiente(null);
@@ -180,7 +181,7 @@ public class PruebaBanco {
 //                    System.out.println(unifila[i]);
 //                    System.out.printf("\nMultifila: %s ", i);
 //                    System.out.println(multifila[i]);
-                    unifila[i].atenderClientes();                  
+                    unifila[i].atenderClientes();            
                     multifila[i].atenderClientes();
                 
                 }

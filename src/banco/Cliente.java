@@ -106,7 +106,7 @@ public class Cliente {
             
             this.asuntos[i].atenderse();
             
-            return;
+            break;
         
         }
     

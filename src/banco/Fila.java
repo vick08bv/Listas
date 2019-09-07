@@ -40,8 +40,7 @@ class Fila implements Comparable<Fila>{
      * Inicia la fila, sin clientes.
      */
     public Fila() {
-        
-        super();
+
         this.primero = null;
         this.ultimo = null;
         this.longitud = 0;
@@ -58,7 +57,9 @@ class Fila implements Comparable<Fila>{
     public void mete(Cliente nuevo) {
         
         if(nuevo == null){
+            
             return;
+        
         }
         
         if(this.isVacia()){
@@ -73,7 +74,7 @@ class Fila implements Comparable<Fila>{
         }
         
         this.ultimo.setSiguiente(nuevo);
-        this.ultimo = nuevo;
+        this.ultimo = this.ultimo.getSiguiente();
         
         this.longitud += 1;
     
@@ -85,13 +86,21 @@ class Fila implements Comparable<Fila>{
     public void saca() {
         
         if (this.isVacia()){
+            
             return;
+            
         }
         
         this.clientes += 1;
         this.tiempoAtencion += this.primero.getTiempoAtencion();
         this.tiempoEspera += this.primero.getTiempoEspera();
         this.longitud -= 1;
+        
+        if(this.isVacia()){
+        
+            this.ultimo = null;
+        
+        }
         
         this.primero = primero.getSiguiente();
         
