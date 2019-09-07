@@ -73,11 +73,19 @@ public class Nodo {
         
             salida += "Izq\n" + this.izq.toString();
             
+        } else {
+            
+            salida += "Izq\n";
+            
         }
         
         if(this.der != null){
         
             salida += "Der\n" + this.der.toString();
+            
+        } else {
+            
+            salida += "Der\n";
             
         }
         
