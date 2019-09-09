@@ -23,7 +23,19 @@ public class Arbol {
     @Override
     public String toString (){
     
-        return "Raiz\n" + this.raiz.toString();
+        return this.raiz.toString();
+        
+    }
+    
+    public String printPostOrden (){
+    
+        return  this.raiz.printPostOrden();
+        
+    }
+    
+    public String printInOrden (){
+    
+        return  this.raiz.printInOrden();
         
     }
     

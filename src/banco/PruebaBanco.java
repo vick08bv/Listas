@@ -121,7 +121,7 @@ public class PruebaBanco {
             
             //Nueva sesión.
             tendencia = Math.random();
-            
+            filaEspera.anula();
             //Clientes en la sesión.
             clientesIn = 0;
             

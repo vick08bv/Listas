@@ -71,24 +71,60 @@ public class Nodo {
         
         if(this.izq != null){
         
-            salida += "Izq\n" + this.izq.toString();
-            
-        } else {
-            
-            salida += "Izq\n";
+            salida += this.izq.toString();
             
         }
         
         if(this.der != null){
         
-            salida += "Der\n" + this.der.toString();
-            
-        } else {
-            
-            salida += "Der\n";
+            salida += this.der.toString();
             
         }
         
+        return salida;
+        
+    }
+    
+    public String printPostOrden(){
+    
+        String salida = "\n";
+        
+        if(this.izq != null){
+        
+            salida += this.izq.printPostOrden();
+            
+        }
+        
+        if(this.der != null){
+        
+            salida += this.der.printPostOrden();
+            
+        }
+            
+        salida += this.info + "\n";
+        
+        return salida;
+        
+    }
+    
+    public String printInOrden(){
+    
+        String salida = "\n";
+        
+        if(this.izq != null){
+        
+            salida += this.izq.printInOrden();
+            
+        }
+        
+        salida += this.info + "\n";
+        
+        if(this.der != null){
+        
+            salida += this.der.printInOrden();
+        
+        }
+            
         return salida;
         
     }

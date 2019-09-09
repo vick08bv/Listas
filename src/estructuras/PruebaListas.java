@@ -71,28 +71,42 @@ public class PruebaListas {
         
         System.out.println(l);
         
-        Nodo a1 = new Nodo("Plátano");
+        Nodo a1 = new Nodo("Manzana");
         
-        Nodo a2 = new Nodo("Pera");
+        Nodo a2 = new Nodo("Plátano");
         
-        Nodo a3 = new Nodo("Manzana");
+        Nodo a3 = new Nodo("Mango");
         
-        Nodo a4 = new Nodo("Guayaba");
+        Nodo a4 = new Nodo("Papaya");
         
-        Nodo a5 = new Nodo("Kiwi");
+        Nodo a5 = new Nodo("Melón");
         
-        Nodo a6 = new Nodo("Uva");
+        Nodo a6 = new Nodo("Kiwi");
         
-        System.out.println(a1);
+        Nodo a7 = new Nodo("Sandía");
+        
+        Nodo a8 = new Nodo("Pitahaya");
+        
+        Nodo a9 = new Nodo("Uva");
+        
+        Nodo a10 = new Nodo("Pera");
+
         Arbol arbol = new Arbol(a1);
         
         a1.setIzq(a2);
         a1.setDer(a3);
-        a2.setIzq(a4);
-        a4.setDer(a5);
-        a5.setDer(a6);
+        a2.setDer(a4);
+        a4.setIzq(a7);
+        a3.setIzq(a5);
+        a3.setDer(a6);
+        a5.setIzq(a8);
+        a6.setIzq(a9);
+        a6.setDer(a10);
         
-        System.out.println(arbol);
+        System.out.printf("\n %s \n", arbol.toString());
+        System.out.printf("\n %s \n", arbol.printPostOrden());
+        System.out.printf("\n %s \n", arbol.printInOrden());
+        
         
     }
     
