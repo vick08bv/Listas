@@ -1,4 +1,4 @@
-package listas;
+package estructuras;
 
 /**
  * Implementación de una casilla que contiene un carácter.

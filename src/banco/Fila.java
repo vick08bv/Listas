@@ -96,13 +96,13 @@ class Fila implements Comparable<Fila>{
         this.tiempoEspera += this.primero.getTiempoEspera();
         this.longitud -= 1;
         
+        this.primero = primero.getSiguiente();
+        
         if(this.isVacia()){
         
-            this.ultimo = null;
+            this.ultimo = this.ultimo.getSiguiente();
         
         }
-        
-        this.primero = primero.getSiguiente();
         
     }
     
@@ -173,7 +173,7 @@ class Fila implements Comparable<Fila>{
      */
     public boolean isVacia(){
     
-        return (this.primero == null);
+        return (this.longitud == 0);
         
     }
     
@@ -265,7 +265,10 @@ class Fila implements Comparable<Fila>{
     @Override
     public String toString(){
     
-        return String.format("Longitud: %s", this.longitud);
+        return String.format("\nPrimero: %s\nUltimo: %s\nLongitud: %s"
+                           + "\nClientes atendidos: %s\nTiempo total de atención: %s"
+                           + "\nTiempo total de espera %s", this.primero, this.ultimo,
+                             this.longitud, this.clientes, this.tiempoAtencion, this.tiempoEspera);
         
     }
     

@@ -29,17 +29,18 @@ public class Cliente {
     /**
      * Constructor del cliente con una cantidad variable 
      * de asuntos por ser atendidos en el banco. 
+     * @param asuntos Número máximo de asuntos.
+     * @param duracion Duración máxima de cada asunto.
      */
-    public Cliente(){
+    public Cliente(int asuntos, int duracion){
         
-        this.asuntos = new Asunto[(int)(7*Math.random() + 1)];
-        
+        this.asuntos = new Asunto[(int)(asuntos*Math.random() + 1)];
         int tiempo = 0;
         Asunto asunto;
     
         for(int i = 0; i < this.asuntos.length; i++){
         
-            asunto = new Asunto();
+            asunto = new Asunto(duracion);
             this.asuntos[i] = asunto;
             tiempo += asunto.getDuracion();
         
@@ -133,14 +134,32 @@ public class Cliente {
     }
     
     /**
+     * Regresa el tiempo restante  del cliente en el banco.
+     * @return Tiempo.
+     */
+    public int getTiempoRestante(){
+    
+        int restante = 0; 
+                
+        for(int i = 0; i < this.asuntos.length; i++){
+        
+            restante += this.asuntos[i].getDuracion();
+            
+        }
+        
+        return restante;
+    
+    }
+    
+    /**
      * Impresión del cliente.
      * @return Número de asuntos y duración total.
      */
     @Override
     public String toString(){
     
-        return String.format("Asuntos: %s Duración total: %s",
-                    this.asuntos.length, this.tiempoAtencion);
+        return String.format("Asuntos: %s Duración Restante: %s",
+                    this.asuntos.length, this.getTiempoRestante());
         
     }
     

@@ -13,10 +13,11 @@ public class Asunto {
 
     /**
      * Inicia el asunto con su respectiva duración.
+     * @param duracion Duración máxima del asunto.
      */
-    public Asunto() {
+    public Asunto(int duracion) {
         
-        this.duracion = (int)(10*Math.random() + 1);
+        this.duracion = (int)(duracion*Math.random() + 1);
         
     }
     

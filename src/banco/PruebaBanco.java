@@ -14,13 +14,19 @@ public class PruebaBanco {
     public static void main(String[] args) {
         
         //Número de simulaciones.
-        int reps = 20;
+        int reps = 500;
         
         //Número de ventanillas
-        int numV = 1;
+        int numV = 3;
         
         //Número de minutos
-        int minutos = 3600;
+        int minutos = 8*3600;
+        
+        //Máximo de asuntos
+        int asuntos = 7;
+        
+        //Máxima duración de cada asunto
+        int duracion = 10;
                 
         //Ventanillas del banco, en modalidad unifila o multifila.
         Fila[] unifila = new Fila[numV];
@@ -110,10 +116,11 @@ public class PruebaBanco {
   
             }
             
+            //Anula la fila de espera
+            filaEspera.anula();
+            
             //Nueva sesión.
             tendencia = Math.random();
-            
-//            System.out.printf("\nTendencia: %s", tendencia);
             
             //Clientes en la sesión.
             clientesIn = 0;
@@ -121,30 +128,19 @@ public class PruebaBanco {
             //Acontecimientos en cada minuto.
             for(int minuto = 0; minuto < minutos; minuto++){
                 
-//                System.out.printf("\nMinuto: %s\n", minuto);
-                
                 //Llegada de un nuevo cliente al banco.
-                if(Math.random() < (1000*tendencia)/(minutos)){
+                if(Math.random() < tendencia/8){
 
-                    ultimoU = new Cliente();
-                    ultimoM = new Cliente();
+                    ultimoU = new Cliente(asuntos, duracion);
+                    ultimoM = new Cliente(asuntos, duracion);
                     clientesIn += 1;
-                    
-//                    System.out.println("\nNuevo Cliente");
-//                    System.out.println(ultimoU);
                     
                     /*Obtención de la fila más corta para que 
                     ahí se forme el cliente nuevo. */ 
                     Arrays.sort(multifila);
-                    
-//                    System.out.println("Fila más corta");
-//                    System.out.println(multifila[0]);
-                
+
                     multifila[0].mete(ultimoM);
-                    
-//                    System.out.println("Fila única");
-//                    System.out.println(filaEspera);
-                               
+
                     //El cliente nuevo se forma en la fila única.
                     filaEspera.mete(ultimoU);
                     
@@ -166,21 +162,13 @@ public class PruebaBanco {
                             
                         }
                         
-//                        System.out.println("Primer cliente en la fila de espera");
-//                        System.out.println(primero);
-                        
                     }
                 
                 }
                 
-//                System.out.println("Filas");
                 //Atención de cada cliente.
                 for(int i=0;i<numV;i++){
 
-//                    System.out.printf("\nUnifila: %s ", i);
-//                    System.out.println(unifila[i]);
-//                    System.out.printf("\nMultifila: %s ", i);
-//                    System.out.println(multifila[i]);
                     unifila[i].atenderClientes();            
                     multifila[i].atenderClientes();
                 
@@ -216,41 +204,29 @@ public class PruebaBanco {
             tiempoTotalAtendidoM += tiempoAtendidoM;
             tiempoTotalEsperaU += tiempoEsperaU;
             tiempoTotalEsperaM += tiempoEsperaM;
-        
-            System.out.printf("\nCifra Diaria:");
-            System.out.printf("\nClientes formados %d", clientesIn);
-            System.out.printf("\nClientes atendidos: ");
-            System.out.printf("\nUnifila: %d    Multifila: %d",
-                                clientesU, clientesM);
-            System.out.printf("\nTiempo de atención: ");
-            System.out.printf("\nUnifila: %d    Multifila: %d",
-                                tiempoAtendidoU, tiempoAtendidoM);
-            System.out.printf("\nTiempo de espera promedio: ");
-            System.out.printf("\nUnifila: %.2f    Multifila: %.2f",
-                                (double)(tiempoEsperaU / clientesU),
-                                (double)(tiempoEsperaM / clientesM));
-             
+            
         }
        
-        clientesPromedioIn = (double)((float)clientesInT / reps); 
-        clientesAtendidosPromedioU = (double)((float)clientesUT / reps);
-        clientesAtendidosPromedioM = (double)((float)clientesMT / reps);
-        tiempoAtencionPromedioU = (double)((float)tiempoTotalAtendidoU / reps);
-        tiempoAtencionPromedioM = (double)((float)tiempoTotalAtendidoM / reps);
-        tiempoEsperaPromedioU = (double)((float)tiempoTotalEsperaU / clientesUT);
-        tiempoEsperaPromedioM = (double)((float)tiempoTotalEsperaM / clientesMT);
+        clientesPromedioIn = (double)((float)(clientesInT) / reps); 
+        clientesAtendidosPromedioU = (double)((float)(clientesUT) / reps);
+        clientesAtendidosPromedioM = (double)((float)(clientesMT) / reps);
+        tiempoAtencionPromedioU = (double)((float)(tiempoTotalAtendidoU) / (numV*minutos*reps));
+        tiempoAtencionPromedioM = (double)((float)(tiempoTotalAtendidoM) / (numV*minutos*reps));
+        tiempoEsperaPromedioU = (double)((float)(tiempoTotalEsperaU) / clientesUT);
+        tiempoEsperaPromedioM = (double)((float)(tiempoTotalEsperaM) / clientesMT);
         
-        System.out.printf("\nPromedios:");
+        System.out.printf("\nSimulaciones: %s\n", reps);
+        System.out.printf("\nPromedios:\n");
         System.out.printf("\nClientes formados en promedio por "
-                        + "cada sesión %.2f", clientesPromedioIn);
+                        + "cada sesión %.2f\n", clientesPromedioIn);
         System.out.printf("\nClientes atendidos promedio en cada sesión:");
-        System.out.printf("\nUnifila: %.2f    Multifila: %.2f",
+        System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
             clientesAtendidosPromedioU, clientesAtendidosPromedioM);
-        System.out.printf("\nTiempo de atención promedio en cada sesión: ");
-        System.out.printf("\nUnifila: %.2f    Multifila: %.2f",
+        System.out.printf("\nTiempo de atención promedio en cada sesión (porcentaje): ");
+        System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
             tiempoAtencionPromedioU, tiempoAtencionPromedioM);
         System.out.printf("\nTiempo de espera promedio: ");
-        System.out.printf("\nUnifila: %.2f    Multifila: %.2f",
+        System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
             tiempoEsperaPromedioU, tiempoEsperaPromedioM);
         
     }
