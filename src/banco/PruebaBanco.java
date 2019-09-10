@@ -216,17 +216,16 @@ public class PruebaBanco {
         tiempoEsperaPromedioM = (double)((float)(tiempoTotalEsperaM) / clientesMT);
         
         System.out.printf("\nSimulaciones: %s\n", reps);
-        System.out.printf("\nPromedios:\n");
         System.out.printf("\nClientes formados en promedio por "
                         + "cada sesión %.2f\n", clientesPromedioIn);
         System.out.printf("\nClientes atendidos promedio en cada sesión:");
         System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
             clientesAtendidosPromedioU, clientesAtendidosPromedioM);
         System.out.printf("\nTiempo de atención promedio en cada sesión (porcentaje): ");
-        System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
+        System.out.printf("\nUnifila: %.4f     Multifila: %.4f\n",
             tiempoAtencionPromedioU, tiempoAtencionPromedioM);
         System.out.printf("\nTiempo de espera promedio: ");
-        System.out.printf("\nUnifila: %.2f    Multifila: %.2f\n",
+        System.out.printf("\nUnifila: %.2f       Multifila: %.2f\n",
             tiempoEsperaPromedioU, tiempoEsperaPromedioM);
         
     }
