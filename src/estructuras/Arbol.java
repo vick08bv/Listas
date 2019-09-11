@@ -20,6 +20,30 @@ public class Arbol {
         
     }
     
+    public Arbol(Nodo raiz, Arbol izq, Arbol der){
+    
+        this.raiz = raiz;
+        
+        if(izq != null){
+            
+            raiz.setIzq(izq.getRaiz());
+        
+        }
+        
+        if(der != null){
+            
+            raiz.setDer(der.getRaiz());
+        
+        }
+        
+    }
+    
+    public Nodo getRaiz(){
+    
+        return this.raiz;
+        
+    }
+    
     @Override
     public String toString (){
     

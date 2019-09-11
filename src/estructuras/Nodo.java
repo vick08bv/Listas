@@ -15,7 +15,7 @@ public class Nodo {
         this.info = "";
         this.izq = null;
         this.der = null;
-        
+
     }
     
     public Nodo(String info){
