@@ -120,7 +120,7 @@ public class PruebaListas {
                             new Arbol(new Nodo("Kiwi"), 
                                 new Arbol(new Nodo("Uva"), null, null), 
                                 new Arbol(new Nodo("Pera"), null, null)))
-                     )
+                     );
         
         
     }
